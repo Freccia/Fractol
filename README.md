@@ -1,1 +1,2 @@
 # Fractol
+Some beautiful fractals!
