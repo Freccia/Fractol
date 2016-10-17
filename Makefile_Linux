@@ -6,11 +6,11 @@
 #    By: lfabbro <lfabbro@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/16 12:24:26 by lfabbro           #+#    #+#              #
-#    Updated: 2016/08/16 13:47:49 by lfabbro          ###   ########.fr        #
+#    Updated: 2016/10/17 15:51:36 by lfabbro          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-RC_PATH = ./src/
+SRC_PATH = ./src/
 OBJ_PATH = ./obj/
 INC_PATH = ./include/ ./libftprintf ./minilibx/
 LIB_PATH = ./libft/ ./minilibx/
