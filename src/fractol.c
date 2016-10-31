@@ -6,7 +6,7 @@
 /*   By: lfabbro <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/07 18:08:43 by lfabbro           #+#    #+#             */
-/*   Updated: 2016/08/16 13:29:42 by lfabbro          ###   ########.fr       */
+/*   Updated: 2016/10/31 10:44:11 by lfabbro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,23 +53,19 @@ void				fractol_new_image(t_data *data)
 int					fractol(char *fractal)
 {
 	t_data			*data;
-	int				(*key_hook_ptr)(int, t_data*);
-	int				(*mouse_hook_ptr)(int, int, t_data*);
-	int				(*zoom_hook_ptr)(int, int, int, t_data*);
 
-	key_hook_ptr = &key_hook;
-	mouse_hook_ptr = &mouse_hook;
-	zoom_hook_ptr = &zoom_hook;
 	if ((data = new_data()) == NULL)
 		return (-1);
 	if (init_mlx(data->mlx) < 0)
 		return (-1);
-	set_fractal(data, fractal);
+	set_mandelbrot(data);
 	fractol_new_image(data);
-	mlx_mouse_hook(data->mlx->win, &zoom_hook, data);
-	mlx_hook(data->mlx->win, KEY_PRESS, KEY_PRESS_MASK, key_hook_ptr, data);
-	mlx_hook(data->mlx->win, MOTIONNOTIFY, POINTERMOTIONMASK, mouse_hook_ptr, \
+	mlx_mouse_hook(data->mlx->win, zoom_hook, data);
+	mlx_hook(data->mlx->win, KEY_PRESS, KEY_PRESS_MASK, key_hook, data);
+	mlx_hook(data->mlx->win, MOTIONNOTIFY, POINTERMOTIONMASK, mouse_hook, \
 			data);
 	mlx_loop(data->mlx->ptr);
+	if (fractal)
+		return (0);
 	return (0);
 }
