@@ -12,10 +12,10 @@
 
 SRC_PATH = ./src/
 OBJ_PATH = ./obj/
-INC_PATH = ./include ./libftprintf ./minilibx_macos
-LIB_PATH = ./libftprintf/ ./minilibx_macos/
+INC_PATH = ./include ./libft ./libft/libft ./minilibx_macos
+LIB_PATH = ./libft/ ./minilibx/
 
-FRAMEWORK = -framework OpenGL -framework Appkit
+FRAMEWORK = -lmlx -lXext -lX11 
 
 SRC_NAME = main.c fractol.c \
 		   mandelbrot.c julia.c burnship.c bird_of_prey.c celtic.c druid.c \
@@ -24,7 +24,7 @@ SRC_NAME = main.c fractol.c \
 		   hook.c hook2.c mouse.c color_hook.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
-LIB_NAME = -lftprintf -lmlx -lm
+LIB_NAME = -lft -lmlx -lm
 NAME = fractol
 
 SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
@@ -49,9 +49,9 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 .PHONY: all lib clean fclean re
 
 lib:
-	@make -C ./libftprintf/
+	@make -C ./libft
 	@echo "\033[35;44m Make minilibx \033[0m"
-	@make -C ./minilibx_macos/
+	@make -C ./minilibx/
 
 clean:
 	rm -rf $(OBJ) $(OBJ_PATH)

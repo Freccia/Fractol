@@ -14,7 +14,7 @@
 # define FRACTOL_H
 
 # include "../minilibx_macos/mlx.h"
-# include "libftprintf.h"
+# include "libft.h"
 
 /*
 **	ENVIRONMENT MACROS
