@@ -12,7 +12,7 @@
 
 SRC_PATH = ./src/
 OBJ_PATH = ./obj/
-INC_PATH = ./include ./libft ./libft/libft ./minilibx_macos
+INC_PATH = ./include ./libft ./libft/libft ./minilibx
 LIB_PATH = ./libft/ ./minilibx/
 
 FRAMEWORK = -lmlx -lXext -lX11 
@@ -35,7 +35,10 @@ LIB = $(addprefix -L,$(LIB_PATH))
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Ofast
 
-all: lib
+all:
+	@make -C ./libft
+	@echo "\033[35;44m Make minilibx \033[0m"
+	@make -C ./minilibx/
 	@echo "\033[35;44m Make $(NAME) \033[0m"
 	@make $(NAME)
 
@@ -46,20 +49,15 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@mkdir -p $(OBJ_PATH)
 	$(CC) $(CFLAGS) $(INC) -o $@ -c $<
 
-.PHONY: all lib clean fclean re
-
-lib:
-	@make -C ./libft
-	@echo "\033[35;44m Make minilibx \033[0m"
-	@make -C ./minilibx/
+.PHONY: all clean fclean re
 
 clean:
 	rm -rf $(OBJ) $(OBJ_PATH)
 
 fclean: clean
 	rm -f $(NAME)
-	@make -C ./libftprintf/ fclean
-	@make -C ./minilibx_macos/ clean
+	@make -C ./libft/ fclean
+	@make -C ./minilibx/ clean
 
 re: fclean
 	@$(MAKE) all
