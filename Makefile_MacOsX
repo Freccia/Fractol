@@ -36,7 +36,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Ofast
 
 all: lib
-	@echo "\033[35;44m Make $(NAME) \033[0m"
+	@echo -e "\033[35;44m Make $(NAME) \033[0m"
 	@make $(NAME)
 
 $(NAME): $(OBJ)
@@ -50,7 +50,7 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 
 lib:
 	@make -C ./libftprintf/
-	@echo "\033[35;44m Make minilibx \033[0m"
+	@echo -e "\033[35;44m Make minilibx \033[0m"
 	@make -C ./minilibx_macos/
 
 clean:

@@ -37,9 +37,9 @@ CFLAGS = -Wall -Wextra -Werror -Ofast
 
 all:
 	@make -C ./libft
-	@echo "\033[35;44m Make minilibx \033[0m"
+	@echo -e "\033[35;44m Make minilibx \033[0m"
 	@make -C ./minilibx/
-	@echo "\033[35;44m Make $(NAME) \033[0m"
+	@echo -e "\033[35;44m Make $(NAME) \033[0m"
 	@make $(NAME)
 
 $(NAME): $(OBJ)
