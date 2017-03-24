@@ -67,9 +67,9 @@ OBJS_LIBFT = $(addprefix $(OBJ_PATH2),$(OBJ_LIBFT))
 INC = $(addprefix -I,$(INC_PATH))
 
 ## COLORS ##
-RED = "\033[33;41m"
-BLUE = "\033[32;44m"
-ENDC = "\033[0m"
+RED = \033[33;41m
+BLUE = \033[32;44m
+ENDC = \033[0m\n
 
 .PHONY: makelibft clean fclean re norme
 
@@ -78,7 +78,7 @@ all :
 	@make $(NAME)
 
 $(NAME): 
-	@echo $(BLUE) "Making libft" $(ENDC)
+	@printf "$(BLUE) Making libft $(ENDC)"
 	@make $(OBJS_PRINTF)
 	@make $(OBJS_LIBFT)
 	@ar -rcs $(NAME) $(OBJS_PRINTF) $(OBJS_LIBFT)
@@ -94,7 +94,7 @@ $(OBJ_PATH1)%.o: $(SRC_LIBFT_PATH)%.c
 
 
 clean :
-	@echo $(RED) "Removing libft objs" $(ENDC)
+	@printf "$(RED) Removing libft objs $(ENDC)"
 	@/bin/rm -f $(OBJS)
 	@/bin/rm -rf $(OBJ_PATH)
 

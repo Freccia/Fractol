@@ -17,6 +17,11 @@
 # include "libft.h"
 
 /*
+** X11 macros
+*/
+//# include <X11/keysymdef.h>
+
+/*
 **	ENVIRONMENT MACROS
 */
 # define ZOOM				160
@@ -56,6 +61,19 @@
 /*
 **	KEYS
 */
+# define ESC_KEY			0xff1b
+# define RESET_KEY			0x0072
+# define PLAY_MUSIC			33
+# define STOP_MUSIC			30
+# define INCR_ITER_KEY		0x003d
+# define DECR_ITER_KEY		0x002d
+# define MOUSE_ON_OFF_KEY	0x0020
+# define UP_KEY				0x08fc
+# define DOWN_KEY			0x08fe
+# define LEFT_KEY			0x08fb
+# define RIGHT_KEY			0x08fd
+
+/*
 # define ESC_KEY			53
 # define RESET_KEY			15
 # define PLAY_MUSIC			33
@@ -67,28 +85,29 @@
 # define DOWN_KEY			126
 # define LEFT_KEY			124
 # define RIGHT_KEY			123
+*/
 
 /*
 **	COLORS KEYS
 */
-# define RED_KEY_PLUS		40
-# define RED_KEY_MINUS		46
-# define GREEN_KEY_PLUS		38
-# define GREEN_KEY_MINUS	45
-# define BLUE_KEY_PLUS		4
-# define BLUE_KEY_MINUS		11
+# define RED_KEY_PLUS		0x0068
+# define RED_KEY_MINUS		0x0062
+# define GREEN_KEY_PLUS		0x006a
+# define GREEN_KEY_MINUS	0x006e
+# define BLUE_KEY_PLUS		0x006b
+# define BLUE_KEY_MINUS		0x006d
 
 /*
 **	FRACTALS KEYS
 */
-# define MANDELBROT_KEY		18
-# define JULIA_KEY			19
-# define BURNSHIP_KEY		20
-# define BIRD_OF_PREY_KEY	21
-# define CELTIC_KEY			23
-# define DRUID_KEY			22
-# define BUFFALO_KEY		26
-# define CUBIC_KEY			28
+# define MANDELBROT_KEY		0x0031
+# define JULIA_KEY			0x0032
+# define BURNSHIP_KEY		0x0033
+# define BIRD_OF_PREY_KEY	0x0034
+# define CELTIC_KEY			0x0035
+# define DRUID_KEY			0x0036
+# define BUFFALO_KEY		0x0037
+# define CUBIC_KEY			0x0038
 
 /*
 **	MOUSE KEYS MACROS
